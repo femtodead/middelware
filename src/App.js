@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider, useDispatch} from "react-redux";
+import store from "./stores/store";
+import ButtonMw from "./components/buttonMw";
+import TasksList from "./components/tasksList";
+import { useEffect } from "react";
+
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=> {
+    dispatch({type: 'TEST'});
+  }, [dispatch]);
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* <ButtonMw /> */}
+    <TasksList />
+
+    </>
+    
   );
 }
 
